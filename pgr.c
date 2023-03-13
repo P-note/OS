@@ -17,7 +17,7 @@ int main(void){
     else{
         printf("Parent process's pid:%d, x value:%d\n",getpid(),x);
         x = 102;
-        printf("Child process's pid:%d, x value: %d\n",getpid(),x);
+        printf("Parent process's pid:%d, x value: %d\n",getpid(),x);
     }
     return 0;
 }
