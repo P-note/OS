@@ -20,6 +20,6 @@ int main(void){
         printf("Child process's pid:%d, x value: %d\n",getpid(),x);
     }
 
-    printf("final x value: %d\n");
+    printf("final x value: %d\n",x);
     return 0;
 }
