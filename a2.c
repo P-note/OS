@@ -27,6 +27,6 @@ int main(void){
         write(fd, parenttalk, 16);
     }
 
-    clsose(fd);
+    close(fd);
     return 0;
 }
