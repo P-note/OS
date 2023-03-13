@@ -10,10 +10,12 @@ int main(void){
         exit(1);
     }
     else if(rc == 0){
+        printf("child pid is: %d\n",getpid());
         printf("hello\n");
     }
     else{
         int wc = wait(NULL);
+        printf("parent pid is: %d\n",getpid());
         printf("value of wc is: %d\n");
         printf("goodbye\n");
     }
