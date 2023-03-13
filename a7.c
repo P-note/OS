@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/wait.h>
 
 int main(void){
+    int state=0;
     int rc = fork();
     if(rc < 0){
         fprintf(stderr,"fork error mate");
