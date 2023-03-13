@@ -9,10 +9,16 @@ int main(void){
         exit(1);
     }
     else if(rc==0){
-        printf("Child process's x value: %d\n",x);
+        printf("Child process's pid:%d, x value: %d\n",getpid(),x);
+        x = 101;
+        printf("Child process's pid:%d, x value: %d\n",getpid(),x);
     }
     else{
-        printf("Parent process's x value:%d\n",x);
+        printf("Parent process's pid:%d, x value:%d\n",getpid(),x);
+        x = 102;
+        printf("Child process's pid:%d, x value: %d\n",getpid(),x);
     }
+
+    printf("final x value: %d\n");
     return 0;
 }
