@@ -32,7 +32,7 @@ int main(void){
     else if(rc2==0){
         close(fd[1]);
         dup2(fd[0], STDIN_FILENO);
-        scanf("%s", &message);
-        printf(message);
+        scanf("%s", message);
+        printf("%s", &message);
     }
 }
