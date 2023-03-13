@@ -11,7 +11,7 @@ int main(void){
     }
     else if(rc == 0){
         printf("Child PID:%d\n", getpid());
-        execle("/bin/ls","ls", NULL);
+        execlp("ls","ls", NULL);
         printf("This shouldn't print out!\n");
     }
     else{
