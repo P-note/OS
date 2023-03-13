@@ -33,6 +33,6 @@ int main(void){
         close(fd[1]);
         dup2(fd[0], STDIN_FILENO);
         scanf("%s", message);
-        printf("%s", &message);
+        printf("%s", message);
     }
 }
