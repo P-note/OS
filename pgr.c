@@ -19,7 +19,5 @@ int main(void){
         x = 102;
         printf("Child process's pid:%d, x value: %d\n",getpid(),x);
     }
-
-    printf("final x value: %d\n",x);
     return 0;
 }
