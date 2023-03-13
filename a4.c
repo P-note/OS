@@ -10,7 +10,7 @@ int main(void){
         exit(1);
     }
     else if(rc == 0){
-        printf("Child PID\n", getpid());
+        printf("Child PID:%d\n", getpid());
         execl("/bin/ls","ls", NULL);
         printf("This shouldn't print out!\n");
     }
