@@ -4,6 +4,7 @@
 #include <sys/wait.h>
 
 int main(void){
+    int state;
     int rc = fork();
     if(rc < 0){
         fprintf(stderr,"fork error mate");
