@@ -11,7 +11,8 @@ int main(void){
     }
     else if(rc == 0){
         printf("Child PID:%d\n", getpid());
-        execlp("ls","ls", NULL);
+        char *arg[]={"ls",NULL};
+        execv("/bin/ls",arg);
         printf("This shouldn't print out!\n");
     }
     else{
