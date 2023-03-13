@@ -16,7 +16,7 @@ int main(void){
     else{
         int wc = wait(NULL);
         printf("parent pid is: %d\n",getpid());
-        printf("value of wc is: %d\n");
+        printf("value of wc is: %d\n",wc);
         printf("goodbye\n");
     }
 }
