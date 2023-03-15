@@ -8,7 +8,7 @@ int main(void){
     int fd[2];
     int rc, rc2;
     int state;
-    char message[9];
+    char message[100];
     if(pipe(fd) < 0){
         printf("pipe error mate");
         return -1;
@@ -21,8 +21,9 @@ int main(void){
         exit(1);
     }
     else if(rc == 0){
+        close(fd[0]);
         dup2(fd[1], STDOUT_FILENO);
-        printf("Transfer");
+        write(1, "transfer", 9);
     }
     else{
         rc2=fork();
@@ -31,12 +32,14 @@ int main(void){
             exit(1);
         }
         else if(rc2==0){
+            close(fd[1]);
             dup2(fd[0], STDIN_FILENO);
-            scanf("%s", message);
+            int n = read(fd[0], message, sizeof(message));
+            printf("%s this is from rc2\n", message);
         }
         waitpid(rc, &state, 0);
         waitpid(rc2, &state, 0);
-        printf("%s", message);
+        printf("%s this is from parent\n", message);
     }
 
     
