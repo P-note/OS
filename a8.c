@@ -7,6 +7,7 @@
 int main(void){
     int fd[2];
     int rc, rc2;
+    int state;
     char message[9];
     if(pipe(fd) < 0){
         printf("pipe error mate");
@@ -33,6 +34,7 @@ int main(void){
         dup2(fd[0], STDIN_FILENO);
         scanf("%s", message);
     }
-
+    waitpid(rc, &state, 0);
+    waitpid(rc2, &state, 0);
     printf("%s", message);
 }
