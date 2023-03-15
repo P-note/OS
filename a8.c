@@ -24,17 +24,20 @@ int main(void){
         dup2(fd[1], STDOUT_FILENO);
         printf("Transfer");
     }
+    else{
+        rc2=fork();
+        if(rc2 < 0){
+            fprintf(stderr,"fork2 error mate");
+            exit(1);
+        }
+        else if(rc2==0){
+            dup2(fd[0], STDIN_FILENO);
+            scanf("%s", message);
+        }
+        waitpid(rc, &state, 0);
+        waitpid(rc2, &state, 0);
+        printf("%s", message);
+    }
 
-    rc2=fork();
-    if(rc2 < 0){
-        fprintf(stderr,"fork2 error mate");
-        exit(1);
-    }
-    else if(rc2==0){
-        dup2(fd[0], STDIN_FILENO);
-        scanf("%s", message);
-    }
-    waitpid(rc, &state, 0);
-    waitpid(rc2, &state, 0);
-    printf("%s", message);
+    
 }
