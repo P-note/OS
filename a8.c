@@ -37,10 +37,11 @@ int main(void){
             int n = read(fd[0], message, sizeof(message));
             printf("%s this is from rc2\n", message);
         }
-        waitpid(rc, &state, 0);
-        waitpid(rc2, &state, 0);
-        printf("%s this is from parent\n", message);
+        else{
+            waitpid(rc, &state, 0);
+            waitpid(rc2, &state, 0);
+        }
     }
 
-    
+    return 0;
 }
