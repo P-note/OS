@@ -7,7 +7,7 @@
 int main(void){
     int fd[2];
     int rc, rc2;
-    char* message;
+    char message[9];
     if(pipe(fd) < 0){
         printf("pipe error mate");
         return -1;
