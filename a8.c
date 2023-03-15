@@ -23,7 +23,7 @@ int main(void){
     else if(rc == 0){
         close(fd[0]);
         dup2(fd[1], STDOUT_FILENO);
-        write(1, "transfer", 9);
+        write(1, "Hello to rc2, this is from rc1\n", 32);
     }
     else{
         rc2=fork();
@@ -35,7 +35,7 @@ int main(void){
             close(fd[1]);
             dup2(fd[0], STDIN_FILENO);
             int n = read(fd[0], message, sizeof(message));
-            printf("%s this is from rc2\n", message);
+            printf("%s", message);
         }
         else{
             waitpid(rc, &state, 0);
