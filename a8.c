@@ -30,7 +30,6 @@ int main(void){
         exit(1);
     }
     else if(rc2==0){
-        close(fd[1]);
         dup2(fd[0], STDIN_FILENO);
         scanf("%s", message);
         printf("%s", message);
